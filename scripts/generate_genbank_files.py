@@ -17,12 +17,12 @@ with open(sys.argv[1]) as inputfilehandler:
     for line in inputfilehandler:
         #read each line/row at a time, each row has all required info to create a .gbk file
         line=line.rstrip()
+        print line
         if line == "":
             continue
         else:
             array=line.split("\t")
-            #print len(array)
-
+            print len(array)
             EC_assembly = array[1]
             backbone = array[2]
             backbone_sequence = array[4]
@@ -53,6 +53,8 @@ with open(sys.argv[1]) as inputfilehandler:
             EC3_end_position = array[37]
             final_sequence_overlap_start = array[39]
             final_sequence_overlap_end = array[40]
+
+
 
             #print EC_assembly, backbone, backbone_sequence, EC1, EC2, EC3, EC1_seq, EC1_digested,EC2_seq, EC2_digested, EC3_seq, EC3_digested, final_sequence, EC1_start_position, EC1_end_position, EC2_start_position, EC2_end_position, EC3_start_position, EC3_end_position
             #print EC_assembly, EC1_start_position, EC1_end_position, EC2_start_position, EC2_end_position, EC3_start_position, EC3_end_position
@@ -104,6 +106,26 @@ with open(sys.argv[1]) as inputfilehandler:
             if array[20] != "" and array[21] != "":
                 misc = SeqFeature(FeatureLocation(int(array[20])-1, int(array[21])), type="misc_feature")
                 misc.qualifiers["label"] = "4bp\overlap"
+                record.features.append(misc)
+            if array[68] != "" and array[69] != "":
+                misc = SeqFeature(FeatureLocation(int(array[68])-1, int(array[69])), type="misc_feature")
+                misc.qualifiers["label"] = "3xFlag"
+                record.features.append(misc)
+            if array[70] != "" and array[71] != "":
+                misc = SeqFeature(FeatureLocation(int(array[70])-1, int(array[71])), type="misc_feature")
+                misc.qualifiers["label"] = "rbcS-Ter"
+                record.features.append(misc)
+            if array[72] != "" and array[73] != "":
+                misc = SeqFeature(FeatureLocation(int(array[72])-1, int(array[73])), type="misc_feature")
+                misc.qualifiers["label"] = "amp/carben_R"
+                record.features.append(misc)
+            if array[74] != "" and array[75] != "":
+                misc = SeqFeature(FeatureLocation(int(array[74])-1, int(array[75])), type="misc_feature")
+                misc.qualifiers["label"] = "2x35S_promoter"
+                record.features.append(misc)
+            if array[76] != "" and array[77] != "":
+                misc = SeqFeature(FeatureLocation(int(array[76])-1, int(array[77])), type="misc_feature")
+                misc.qualifiers["label"] = "TMV_Omega"
                 record.features.append(misc)
                 '''
             if array[27] != "" and array[28] != "":
