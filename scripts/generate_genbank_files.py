@@ -17,12 +17,10 @@ with open(sys.argv[1]) as inputfilehandler:
     for line in inputfilehandler:
         #read each line/row at a time, each row has all required info to create a .gbk file
         line=line.rstrip()
-        print line
         if line == "":
             continue
         else:
             array=line.split("\t")
-            print len(array)
             EC_assembly = array[1]
             backbone = array[2]
             backbone_sequence = array[4]
@@ -145,7 +143,7 @@ with open(sys.argv[1]) as inputfilehandler:
             SeqIO.write(record, output_file, 'genbank')
             output_file.close()
             cmd="bash scripts/add_circular_basecounts.sh " + EC_assembly + ".gb \"" + base_count + "\" > " + "temp; mv temp " + EC_assembly + ".gb"
-            print cmd
+            print(cmd)
             os.system(cmd)
 
 
