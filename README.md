@@ -6,3 +6,8 @@ The script generated Genbank format files from tab separated data files. Data ar
 
 1) python v2.7+
 2) biopython
+
+## Usage:
+
+python3 scripts/generate_genbank_files.py tab-delimited-file.csv       # script generates genbank format files
+python3 scritps/get_genbank_record_by_id.py list-of-genban-ids.csv     # script gets geneid for proteins using genbank protein ids
