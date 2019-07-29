@@ -142,7 +142,7 @@ with open(sys.argv[1]) as inputfilehandler:
             output_file = open(EC_assembly + '.gb', 'w')
             SeqIO.write(record, output_file, 'genbank')
             output_file.close()
-            cmd="bash " + os.path.abspath(os.path.dirname(sys.argv[0])) + "/add_circular_basecounts.sh " + EC_assembly + ".gb \"" + base_count + "\" > " + "temp; mv temp " + EC_assembly + ".gb"
+            cmd="python " + os.path.abspath(os.path.dirname(sys.argv[0])) + "/add_circular_basecounts.py " + EC_assembly + ".gb \"" + base_count + "\" > " + "temp; mv temp " + EC_assembly + ".gb"
             print(cmd)
             os.system(cmd)
 
