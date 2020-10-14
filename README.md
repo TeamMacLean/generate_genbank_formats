@@ -4,8 +4,8 @@ The script generated Genbank format files from tab separated data files. Data ar
 
 ## Requirements
 
-1) python (v2.7+ or v3.5+)
-2) biopython
+1) python (v3.5+)
+2) biopython v1.78+
 
 ## Usage:
 
